@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="vue," />
+  <meta name="keywords" content="css," />
 
 
 
@@ -79,17 +79,20 @@
 
 
 
-<meta name="description" content="最近在做毕设，正好碰到:model与v-model的问题，就想着写一下这两者的区别。">
+<meta name="description" content="工作的第一个bug">
 <meta property="og:type" content="article">
-<meta property="og:title" content=":model与v-model">
-<meta property="og:url" content="http://yoursite.com/2020/04/16/vue-model/index.html">
+<meta property="og:title" content="flex布局下的padding失效">
+<meta property="og:url" content="http://yoursite.com/2020/07/18/bug_20200718/index.html">
 <meta property="og:site_name" content="Siriushsia&#39;s blog">
-<meta property="og:description" content="最近在做毕设，正好碰到:model与v-model的问题，就想着写一下这两者的区别。">
-<meta property="article:published_time" content="2020-04-16T15:20:19.122Z">
-<meta property="article:modified_time" content="2020-04-16T15:20:19.122Z">
+<meta property="og:description" content="工作的第一个bug">
+<meta property="og:image" content="https://sbimg.cn/image/CEMzn">
+<meta property="og:image" content="https://sbimg.cn/image/C8fIj">
+<meta property="article:published_time" content="2020-07-17T16:58:49.100Z">
+<meta property="article:modified_time" content="2020-07-17T16:58:49.100Z">
 <meta property="article:author" content="Siriushsia">
-<meta property="article:tag" content="vue">
+<meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sbimg.cn/image/CEMzn">
 
 
 
@@ -119,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/04/16/vue-model/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/07/18/bug_20200718/"/>
 
 
 
 
 
-  <title>:model与v-model | Siriushsia's blog</title>
+  <title>flex布局下的padding失效 | Siriushsia's blog</title>
   
 
 
@@ -262,7 +265,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/16/vue-model/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/18/bug_20200718/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Siriushsia">
@@ -279,7 +282,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">:model与v-model</h1>
+          <h1 class="post-title" itemprop="name headline">flex布局下的padding失效</h1>
         
 
         <div class="post-meta">
@@ -291,8 +294,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-16T23:20:19+08:00">
-                2020-04-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-18T00:58:49+08:00">
+                2020-07-18
               </time>
             
 
@@ -314,8 +317,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
+                  <a href="/categories/bugs/" itemprop="url" rel="index">
+                    <span itemprop="name">bugs</span>
                   </a>
                 </span>
 
@@ -356,18 +359,13 @@
       
 
       
-        <p>最近在做毕设，正好碰到:model与v-model的问题，就想着写一下这两者的区别。</p>
-<a id="more"></a>
-<h2 id="model"><a href="#model" class="headerlink" title=":model"></a>:model</h2><p> :model是v-bind:model的缩写,这种只是将父组件的数据传递到了子组件，并没有实现子组件和父组件数据的双向绑定。当然引用类型除外，子组件改变引用类型的数据的话，父组件也会改变的。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-form :inline=<span class="string">"true"</span> :model-=<span class="string">"searchForm"</span>&gt;</span><br><span class="line">            &lt;el-form-item prop=<span class="string">"index"</span> &gt;<span class="xml"><span class="tag">&lt;<span class="name">el-input</span> **<span class="attr">:model</span>=<span class="string">"searchForm.index"</span>** <span class="attr">placeholder</span>=<span class="string">"书名，作者名，书籍编号"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line">            &lt;el-form-item&gt;<span class="xml"><span class="tag">&lt;<span class="name">el-button</span> <span class="attr">icon</span>=<span class="string">"el-icon-search"</span> &gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/el-form&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">&lt;script&gt;</span></span><br><span class="line">data () &#123;</span><br><span class="line">          <span class="keyword">return</span> &#123;</span><br><span class="line">            fit<span class="variable">s:</span> [<span class="string">'万有引力'</span>, <span class="string">'肥肉'</span>, <span class="string">'人间'</span>, <span class="string">'流年'</span>, <span class="string">'百年孤独'</span>],</span><br><span class="line">            ur<span class="variable">l:</span> <span class="string">'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'</span>,</span><br><span class="line">            searchForm: &#123;</span><br><span class="line">              <span class="built_in">index</span>: <span class="string">' '</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>上述代码就是把input里面的值与data里面的index的值绑定起来，当index的变化时input里面的值也会随着变化，而input的值不能变化也就是说此时input失去了他的输入作用。</p>
-<h2 id="V-model"><a href="#V-model" class="headerlink" title="V-model"></a>V-model</h2><p>v-model主要是用在表单元素中，它实现了双向绑定。就是父组件的值改变时，子组件的值也会改变，子组件的值改变，父组件也会跟着改变，也就相当于此时的父子组件从同一个地址里面拿东西，放东西。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-form :inline=<span class="string">"true"</span> :model-=<span class="string">"searchForm"</span>&gt;</span><br><span class="line">            &lt;el-form-item prop=<span class="string">"index"</span> &gt;<span class="xml"><span class="tag">&lt;<span class="name">el-input</span> **<span class="attr">v-model</span>=<span class="string">"searchForm.index"</span>** <span class="attr">placeholder</span>=<span class="string">"书名，作者名，书籍编号"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line">            &lt;el-form-item&gt;<span class="xml"><span class="tag">&lt;<span class="name">el-button</span> <span class="attr">icon</span>=<span class="string">"el-icon-search"</span> &gt;</span><span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/el-form&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">&lt;script&gt;</span></span><br><span class="line">data () &#123;</span><br><span class="line">          <span class="keyword">return</span> &#123;</span><br><span class="line">            fit<span class="variable">s:</span> [<span class="string">'万有引力'</span>, <span class="string">'肥肉'</span>, <span class="string">'人间'</span>, <span class="string">'流年'</span>, <span class="string">'百年孤独'</span>],</span><br><span class="line">            ur<span class="variable">l:</span> <span class="string">'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'</span>,</span><br><span class="line">            searchForm: &#123;</span><br><span class="line">              <span class="built_in">index</span>: <span class="string">' '</span></span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>还是刚才那串代码，此时的:model已经改成了v-model，此时不光index的变化时input里面的值也会随着变化，而当input的值变化时，index的值也会跟着变化，可以直接把index的值提交或操作。</p>
+        <h2 id="工作的第一个bug"><a href="#工作的第一个bug" class="headerlink" title="工作的第一个bug"></a>工作的第一个bug</h2><a id="more"></a>
+<h2 id="发生场景"><a href="#发生场景" class="headerlink" title="发生场景"></a>发生场景</h2><p>在使用flex布局下，想要最后一个子元素和右边缘有一定距离，就像第一个子元素与左边缘有一定距离的效果一样。</p>
+<h3 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul <span class="keyword">class</span>="<span class="symbol">father</span>"&gt;</span><br><span class="line">        &lt;<span class="symbol">li</span> <span class="symbol">class</span>="<span class="symbol">son</span>"&gt;子元素<span class="symbol">1</span>&lt;/<span class="symbol">li</span>&gt;</span><br><span class="line">        &lt;<span class="symbol">li</span> <span class="symbol">class</span>="<span class="symbol">son</span>"&gt;子元素<span class="symbol">2</span>&lt;/<span class="symbol">li</span>&gt;</span><br><span class="line">        &lt;<span class="symbol">li</span> <span class="symbol">class</span>="<span class="symbol">son</span>"&gt;子元素<span class="symbol">3</span>&lt;/<span class="symbol">li</span>&gt;</span><br><span class="line">        &lt;<span class="symbol">li</span> <span class="symbol">class</span>="<span class="symbol">son</span>"&gt;子元素<span class="symbol">4</span>&lt;/<span class="symbol">li</span>&gt;</span><br><span class="line">        &lt;<span class="symbol">li</span> <span class="symbol">class</span>="<span class="symbol">son</span>"&gt;子元素<span class="symbol">5</span>&lt;/<span class="symbol">li</span>&gt;</span><br><span class="line">        &lt;<span class="symbol">li</span> <span class="symbol">class</span>="<span class="symbol">son</span>"&gt;子元素<span class="symbol">6</span>&lt;/<span class="symbol">li</span>&gt;</span><br><span class="line">        &lt;<span class="symbol">li</span> <span class="symbol">class</span>="<span class="symbol">son</span>"&gt;子元素<span class="symbol">7</span>&lt;/<span class="symbol">li</span>&gt;</span><br><span class="line">        &lt;<span class="symbol">li</span> <span class="symbol">class</span>="<span class="symbol">son</span>"&gt;子元素<span class="symbol">8</span>&lt;/<span class="symbol">li</span>&gt;</span><br><span class="line">        &lt;<span class="symbol">li</span> <span class="symbol">class</span>="<span class="symbol">son</span>"&gt;子元素<span class="symbol">9</span>&lt;/<span class="symbol">li</span>&gt;</span><br><span class="line">        &lt;<span class="symbol">li</span> <span class="symbol">class</span>="<span class="symbol">son</span>"&gt;子元素<span class="symbol">10</span>&lt;/<span class="symbol">li</span>&gt;</span><br><span class="line">        &lt;<span class="symbol">li</span> <span class="symbol">class</span>="<span class="symbol">son</span>"&gt;子元素<span class="symbol">11</span>&lt;/<span class="symbol">li</span>&gt;</span><br><span class="line">        &lt;<span class="symbol">li</span> <span class="symbol">class</span>="<span class="symbol">son</span>"&gt;子元素<span class="symbol">12</span>&lt;/<span class="symbol">li</span>&gt;</span><br><span class="line">        &lt;<span class="symbol">li</span> <span class="symbol">class</span>="<span class="symbol">son</span>"&gt;子元素<span class="symbol">13</span>&lt;/<span class="symbol">li</span>&gt;</span><br><span class="line">        &lt;<span class="symbol">li</span> <span class="symbol">class</span>="<span class="symbol">son</span>"&gt;子元素<span class="symbol">14</span>&lt;/<span class="symbol">li</span>&gt;</span><br><span class="line">    &lt;/<span class="symbol">ul</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="css代码"><a href="#css代码" class="headerlink" title="css代码"></a>css代码</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.father</span>&#123;</span></span><br><span class="line">            display: flex;</span><br><span class="line">            padding-right: 10px;</span><br><span class="line">            width: 400px;</span><br><span class="line">            border: 1px solid blue;</span><br><span class="line">            background-color: aqua;</span><br><span class="line">            overflow-x: auto;</span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-class">.son</span>&#123;</span></span><br><span class="line">            display: flex;</span><br><span class="line">            margin-right: 10px;</span><br><span class="line">            border: 1px solid red;</span><br><span class="line">            white-space: nowrap;</span><br><span class="line">            width: 100%;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="https://sbimg.cn/image/CEMzn" alt="pading-right为10px"></p>
+<h2 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h2><p>就个人分析来说，这种原因是因为flex整个盒子的宽度是等于<br>contend的宽度加上margin-left和margin-right以及padding-left<br>和padding-right的，所以并不是不生效，而是加到了父组件的宽度上，如下图设置父组件pading-right为100px后，宽度发生变化<br><br><img src="https://sbimg.cn/image/C8fIj" alt="padding-right为100px"></p>
+<h2 id="办法"><a href="#办法" class="headerlink" title="办法"></a>办法</h2><p>如果想要达到最后一个子元素和父组件的边缘有一定距离的话<br>个人推荐在后面新增一个宽度一定的<div>来充当padding-right<br>这样dom树只多了一个节点就达到了想要的效果</p>
 
       
     </div>
@@ -385,7 +383,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
+            <a href="/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
           
         </div>
       
@@ -498,7 +496,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -509,7 +507,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -542,7 +540,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#model"><span class="nav-number">1.</span> <span class="nav-text">:model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V-model"><span class="nav-number">2.</span> <span class="nav-text">V-model</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#工作的第一个bug"><span class="nav-number">1.</span> <span class="nav-text">工作的第一个bug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发生场景"><span class="nav-number">2.</span> <span class="nav-text">发生场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#html代码"><span class="nav-number">2.1.</span> <span class="nav-text">html代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css代码"><span class="nav-number">2.2.</span> <span class="nav-text">css代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#效果图"><span class="nav-number">2.3.</span> <span class="nav-text">效果图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原因分析"><span class="nav-number">3.</span> <span class="nav-text">原因分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#办法"><span class="nav-number">4.</span> <span class="nav-text">办法</span></a></li></ol></div>
             
 
           </div>
