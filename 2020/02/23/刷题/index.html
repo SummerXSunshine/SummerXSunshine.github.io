@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hans" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>刷题小记1 - Aixaix&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="有关字符串操作的一些编程题
+
+001 字符个数统计编写一个函数，计算字符串中含有的不同字符的个数。字符在ACSII码范围内(0~127)，换行表示结束符，不算在字符里。不在范围内的不作统计。
+123,"> 
+    <meta name="author" content="Aixaix"> 
+    <link rel="alternative" href="atom.xml" title="Aixaix&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Aixaix&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">刷题小记1</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">刷题小记1</h1>
+        <div class="stuff">
+            <span>二月 23, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E9%A2%98/" rel="tag">编程题</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>有关字符串操作的一些编程题</p>
+<a id="more"></a>
+<h3 id="001-字符个数统计"><a href="#001-字符个数统计" class="headerlink" title="001 字符个数统计"></a>001 字符个数统计</h3><p>编写一个函数，计算字符串中含有的不同字符的个数。字符在ACSII码范围内(0~127)，换行表示结束符，不算在字符里。不在范围内的不作统计。</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#include&lt;stdio.h&gt;</span></span><br><span class="line"><span class="meta">#include&lt;string.h&gt;</span></span><br><span class="line"><span class="keyword">int</span> main()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> kind[<span class="number">128</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">char</span> <span class="keyword">str</span>[<span class="number">1000</span>];</span><br><span class="line">    gets(<span class="keyword">str</span>);</span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">0</span>,<span class="keyword">count</span>=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">str</span>[i]!=<span class="string">'\0'</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">str</span>[i]&gt;=<span class="number">0</span>&amp;&amp;<span class="keyword">str</span>[i]&lt;=<span class="number">127</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            kind[<span class="keyword">str</span>[i]]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        i++;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">128</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">count</span>+=kind[i];</span><br><span class="line">    &#125;</span><br><span class="line">    printf(<span class="string">"%d"</span>,<span class="keyword">count</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="002-计算字符个数"><a href="#002-计算字符个数" class="headerlink" title="002    计算字符个数"></a>002    计算字符个数</h3><p>写出一个程序，接受一个由字母和数字组成的字符串，和一个字符，然后输出输入字符串中含有该字符的个数。不区分大小写。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> count=<span class="number">0</span>,i=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">string</span> str;</span><br><span class="line">	<span class="keyword">char</span> ch;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; str;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; ch;</span><br><span class="line">	<span class="keyword">while</span>(str[i]!=<span class="string">'\0'</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(str[i]==ch)</span><br><span class="line">		&#123;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(str[i]+<span class="number">32</span>==ch||str[i]<span class="number">-32</span>==ch)</span><br><span class="line">		&#123;</span><br><span class="line">				count++;</span><br><span class="line">		&#125;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; count;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="003-字串的连接最长路径查找"><a href="#003-字串的连接最长路径查找" class="headerlink" title="003    字串的连接最长路径查找"></a>003    字串的连接最长路径查找</h3><p>给定n个字符串，请对n个字符串按照字典序排列。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,i,j;</span><br><span class="line">	<span class="built_in">string</span> str[<span class="number">1000</span>],temp;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; str[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n<span class="number">-1</span>;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;n-i<span class="number">-1</span>;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(str[j]&gt;str[j+<span class="number">1</span>])</span><br><span class="line">			&#123;</span><br><span class="line">				temp=str[j];</span><br><span class="line">				str[j]=str[j+<span class="number">1</span>];</span><br><span class="line">				str[j+<span class="number">1</span>]=temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;str[i]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="004坐标移动"><a href="#004坐标移动" class="headerlink" title="004坐标移动"></a>004坐标移动</h3><p>开发一个坐标计算工具， A表示向左移动，D表示向右移动，W表示向上动。S表示向下移动。从（0,0）点开始移动，从输入字符串里面读取一些坐标，并将最终输入结果输出到输出文件里面。<br>输入：<br>合法坐标为A(或者D或者W或者S) + 数字（两位以内）坐标之间以;分隔。非法坐标点需要进行丢弃。如AA10;  A1A;  $%$;  YAD; 等。下面是一个简单的例子 如：<br>A10;S20;W10;D30;X;A1A;B10A11;;A10;<br>处理过程：<br>起点（0,0）</p>
+<ul>
+<li>A10   =  （-10,0）</li>
+<li>S20   =  (-10,-20)</li>
+<li>W10  =  (-10,-10)</li>
+<li>D30  =  (20,-10)</li>
+<li>x    =  无效</li>
+<li>A1A   =  无效</li>
+<li>B10A11   =  无效</li>
+<li>一个空 不影响</li>
+<li>A10  =  (10,-10)<br>结果 （10， -10）<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include&lt;string&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">int valid(string a)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span>(a[0]!=<span class="string">'A'</span>&amp;&amp;a[0]!=<span class="string">'W'</span>&amp;&amp;a[0]!=<span class="string">'D'</span>&amp;&amp;a[0]!=<span class="string">'S'</span>)</span><br><span class="line">		return 0;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a[1]&lt;<span class="string">'0'</span>||a[1]&gt;<span class="string">'9'</span>)</span><br><span class="line">		return 0;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a[1]&lt;<span class="string">'0'</span>||a[1]&gt;<span class="string">'9'</span>)</span><br><span class="line">		return 0;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		return 1;</span><br><span class="line"> &#125; </span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	string str;</span><br><span class="line">	<span class="keyword">while</span>(cin&gt;&gt;str)</span><br><span class="line">	&#123;</span><br><span class="line">		int <span class="attribute">x</span>=0,y=0,i=0;</span><br><span class="line">	<span class="keyword">while</span>(str[i]!=<span class="string">'\0'</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		int <span class="attribute">i</span>=0;</span><br><span class="line">		string mov;</span><br><span class="line">		<span class="keyword">while</span>(str[i]!=<span class="string">';'</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attribute">mov</span>=mov+str[i];</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">		int <span class="attribute">j</span>=0;</span><br><span class="line">			<span class="keyword">if</span>(valid(mov)&amp;&amp;mov.size()==3)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(mov[j]==<span class="string">'A'</span>)</span><br><span class="line">					<span class="attribute">x</span>=x-(mov[2]-48)-(mov[1]-48)<span class="number">*10</span>;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(mov[j]==<span class="string">'W'</span>)</span><br><span class="line">					<span class="attribute">y</span>=y+(mov[2]-48)+(mov[1]-48)<span class="number">*10</span>;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(mov[j]==<span class="string">'D'</span>)</span><br><span class="line">					<span class="attribute">x</span>=x+(mov[2]-48)+(mov[1]-48)<span class="number">*10</span>;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(mov[j]==<span class="string">'S'</span>)</span><br><span class="line">					<span class="attribute">y</span>=y-(mov[2]-48)-(mov[1]-48)<span class="number">*10</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(valid(mov)&amp;&amp;mov.size()==2)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(mov[j]==<span class="string">'A'</span>)</span><br><span class="line">					<span class="attribute">x</span>=x-(mov[1]-48);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(mov[j]==<span class="string">'W'</span>)</span><br><span class="line">					<span class="attribute">y</span>=y+(mov[1]-48);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(mov[j]==<span class="string">'D'</span>)</span><br><span class="line">					<span class="attribute">x</span>=x+(mov[1]-48);</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(mov[j]==<span class="string">'S'</span>)</span><br><span class="line">					<span class="attribute">y</span>=y-(mov[1]-48);</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="attribute">str</span>=str.substr(i+1);</span><br><span class="line">		i++; </span><br><span class="line">	 &#125;</span><br><span class="line">	cout &lt;&lt;x&lt;&lt;<span class="string">","</span>&lt;&lt;y&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="005删除字符串中出现次数最少的字符"><a href="#005删除字符串中出现次数最少的字符" class="headerlink" title="005删除字符串中出现次数最少的字符"></a>005删除字符串中出现次数最少的字符</h3>实现删除字符串中出现次数最少的字符，若多个字符出现次数一样，则都删除。输出删除这些单词后的字符串，字符串中其它字符保持原来的顺序。<br>注意每个输入文件有多组输入，即多个字符串用回车隔开<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> str;</span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">min</span>=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;str)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> s[<span class="number">30</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;str.<span class="built_in">size</span>();i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(str[i]&gt;=<span class="string">'a'</span>&amp;&amp;str[i]&lt;=<span class="string">'z'</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				s[str[i]<span class="number">-97</span>]++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">30</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(s[i]&gt;=<span class="number">1</span>&amp;&amp;s[i]&lt;<span class="built_in">min</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">min</span>=s[i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;str.<span class="built_in">size</span>();i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(str[i]&lt;<span class="string">'a'</span>&amp;&amp;str[i]&gt;<span class="string">'z'</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;str[i];</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(s[str[i]<span class="number">-97</span>]!=<span class="built_in">min</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">cout</span>&lt;&lt;str[i];</span><br><span class="line">			 &#125; </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="006密码合格验证"><a href="#006密码合格验证" class="headerlink" title="006密码合格验证"></a>006密码合格验证</h3>密码要求:</li>
+</ul>
+<p>1.长度超过8位<br>2.包括大小写字母.数字.其它符号,以上四种至少三种<br>3.不能有相同长度超2的子串重复<br>说明:长度超过2的子串</p>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//某大佬简洁的代码</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line">using namespace std;</span><br><span class="line">int main()&#123;</span><br><span class="line">    string <span class="built_in">str</span>;</span><br><span class="line">    <span class="keyword">while</span>(cin &gt;&gt; <span class="built_in">str</span>)&#123;</span><br><span class="line">        int <span class="built_in">flag</span>[<span class="number">4</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">str</span>.<span class="built_in">size</span>() &lt;= <span class="number">8</span>) <span class="built_in">goto</span> NG;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt; <span class="built_in">str</span>.<span class="built_in">size</span>(); ++i)</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">str</span>[i] &gt;= <span class="string">'a'</span> &amp;&amp; <span class="built_in">str</span>[i] &lt;= <span class="string">'z'</span>) <span class="built_in">flag</span>[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">str</span>[i] &gt;= <span class="string">'A'</span> &amp;&amp; <span class="built_in">str</span>[i] &lt;= <span class="string">'Z'</span>) <span class="built_in">flag</span>[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">str</span>[i] &gt;= <span class="string">'0'</span> &amp;&amp; <span class="built_in">str</span>[i] &lt;= <span class="string">'9'</span>) <span class="built_in">flag</span>[<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="built_in">flag</span>[<span class="number">3</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">flag</span>[<span class="number">0</span>] + <span class="built_in">flag</span>[<span class="number">1</span>] + <span class="built_in">flag</span>[<span class="number">2</span>] + <span class="built_in">flag</span>[<span class="number">3</span>] &lt; <span class="number">3</span>) <span class="built_in">goto</span> NG;</span><br><span class="line">        <span class="keyword">for</span>(int i = <span class="number">0</span>; i &lt;= <span class="built_in">str</span>.<span class="built_in">size</span>()-<span class="number">6</span>; i++)</span><br><span class="line">            <span class="keyword">for</span>(int j = i+<span class="number">3</span>;j &lt; <span class="built_in">str</span>.<span class="built_in">size</span>();j++)</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">str</span>[i] == <span class="built_in">str</span>[j] &amp;&amp; <span class="built_in">str</span>[i+<span class="number">1</span>] == <span class="built_in">str</span>[j+<span class="number">1</span>] &amp;&amp;<span class="built_in">str</span>[i+<span class="number">2</span>] == <span class="built_in">str</span>[j+<span class="number">2</span>]) <span class="built_in">goto</span> NG;</span><br><span class="line">        OK:</span><br><span class="line">        cout &lt;&lt; <span class="string">"OK"</span> &lt;&lt; <span class="literal">endl</span>;continue;</span><br><span class="line">        NG:</span><br><span class="line">        cout &lt;&lt; <span class="string">"NG"</span> &lt;&lt; <span class="literal">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
